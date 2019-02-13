@@ -31,7 +31,11 @@ namespace DeliveryService.Migrations
                         DeliveryDate = c.DateTime(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
-                .PrimaryKey(t => t.OrderId);
+                .PrimaryKey(t => t.OrderId)
+                .ForeignKey("dbo.Customer", t => t.CustomerId, cascadeDelete: true)
+                .ForeignKey("dbo.Product", t => t.ProductId, cascadeDelete: true)
+                .Index(t => t.CustomerId)
+                .Index(t => t.ProductId);
             
             CreateTable(
                 "dbo.Product",
@@ -56,6 +60,10 @@ namespace DeliveryService.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Order", "ProductId", "dbo.Product");
+            DropForeignKey("dbo.Order", "CustomerId", "dbo.Customer");
+            DropIndex("dbo.Order", new[] { "ProductId" });
+            DropIndex("dbo.Order", new[] { "CustomerId" });
             DropTable("dbo.Product");
             DropTable("dbo.Order");
             DropTable("dbo.Customer");

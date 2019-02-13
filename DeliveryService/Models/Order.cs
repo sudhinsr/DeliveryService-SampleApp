@@ -17,5 +17,8 @@ namespace DeliveryService.Models
         public bool HasCoupon => !string.IsNullOrEmpty(Coupon);
         public bool IsWeekend =>
             DeliveryDate.DayOfWeek == DayOfWeek.Saturday || DeliveryDate.DayOfWeek == DayOfWeek.Sunday;
+
+        public virtual Customer Customer { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

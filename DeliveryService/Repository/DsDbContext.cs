@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DeliveryService.Models;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using DeliveryService.Models;
 
 namespace DeliveryService.Repository
 {
@@ -19,9 +15,14 @@ namespace DeliveryService.Repository
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>().Map(m => m.ToTable("Product"));
-            modelBuilder.Entity<Customer>().Map(m => m.ToTable("Customer"));
-            modelBuilder.Entity<Order>().Map(m => m.ToTable("Order"));
+            modelBuilder.Entity<Product>().Map(m => m.ToTable("Product"))   
+                .HasKey(t => t.ProductId);
+
+            modelBuilder.Entity<Customer>().Map(m => m.ToTable("Customer"))
+                .HasKey(t => t.CustomerId);
+
+            modelBuilder.Entity<Order>().Map(m => m.ToTable("Order"))
+                .HasKey(t => t.OrderId);
         }
     }
 }

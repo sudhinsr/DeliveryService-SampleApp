@@ -13,7 +13,7 @@ namespace DeliveryService.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201902122156017_Initial"; }
+            get { return "201902131744190_Initial"; }
         }
         
         string IMigrationMetadata.Source

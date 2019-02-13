@@ -1,29 +1,30 @@
-﻿using System;
-using System.Web.Http;
+﻿using System.Data;
 using DeliveryService.Models;
 using DeliveryService.PriceCalculation;
-using DeliveryService.Services;
+using DeliveryService.Repository.Interface;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace DeliveryService.Controllers
 {
-    [Route("order")]
+    [RoutePrefix("order")]
     public class OrderController : ApiController
     {
-        private readonly ProductService _productService;
-        private readonly CustomerService _customerService;
+        private readonly IProductRepository _productRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public OrderController(ProductService productService, CustomerService customerService)
+        public OrderController(IProductRepository productRepository, ICustomerRepository customerRepository)
         {
-            _productService = productService;
-            _customerService = customerService;
+            _productRepository = productRepository;
+            _customerRepository = customerRepository;
         }
 
+        [Route("fee-estimation")]
         [HttpPost]
-        public Order Get(Order order)
+        public async Task<Order> Get(Order order)
         {
-            
-            var product = _productService.GetById(order.ProductId);
-            var customer = _customerService.GetById(order.CustomerId);
+            var product = await _productRepository.GetAsync(order.ProductId);
+            var customer = await _customerRepository.GetAsync(order.CustomerId);
 
             return GetOrderEstimation(product, customer, order);
         }

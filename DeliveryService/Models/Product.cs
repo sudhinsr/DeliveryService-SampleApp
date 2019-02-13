@@ -1,4 +1,6 @@
-﻿namespace DeliveryService.Models
+﻿using System.Collections.Generic;
+
+namespace DeliveryService.Models
 {
     public class Product
     {
@@ -14,5 +16,7 @@
         public decimal PriceEachKm { get; set; }
         public decimal Price5Floor { get; set; }
         public decimal PriceEachFloor { get; set; }
+
+        public virtual ICollection<Order> Order { get; set; }
     }
 }
