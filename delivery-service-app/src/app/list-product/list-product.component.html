@@ -1,0 +1,22 @@
+<p>
+  list-product works!
+</p>
+<div class="col-md-6">
+  <h2> User Details</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Name</th>
+      <th>Base Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+      <td class="hidden">{{product.ProductId}}</td>
+      <td>{{product.Name}}</td>
+      <td>{{product.BasePrice}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
