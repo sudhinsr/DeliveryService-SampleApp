@@ -11,13 +11,14 @@ namespace DeliveryService.Tests
     public class TestOrderController
     {
         private readonly Mock<ICustomerRepository> _customerRepositoryMock = new Mock<ICustomerRepository>();
+        private readonly Mock<IOrderRepository> _orderRepositoryMock = new Mock<IOrderRepository>();
         private readonly Mock<IProductRepository> _productRepositoryMock = new Mock<IProductRepository>();
 
         private readonly OrderController _orderController;
 
         public TestOrderController()
         {
-            _orderController = new OrderController(_productRepositoryMock.Object, _customerRepositoryMock.Object);
+            _orderController = new OrderController(_productRepositoryMock.Object, _customerRepositoryMock.Object, _orderRepositoryMock.Object);
         }
 
         [Test]

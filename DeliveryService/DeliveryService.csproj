@@ -114,6 +114,8 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Migrations\201902131744190_Initial.cs" />
     <Compile Include="Migrations\201902131744190_Initial.Designer.cs">
       <DependentUpon>201902131744190_Initial.cs</DependentUpon>
