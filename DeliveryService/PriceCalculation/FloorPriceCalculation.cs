@@ -7,13 +7,13 @@ namespace DeliveryService.PriceCalculation
         public override void Process(Product product, Customer customer, Order order)
         {
 
-            if (order.Distance <= 5)
+            if (order.NoOfFloors <= 5)
             {
                 order.Price += product.Price5Floor;
             }
             else
             {
-                var additionalFloorPrice = (order.Distance - 5) * product.PriceEachFloor;
+                var additionalFloorPrice = (order.NoOfFloors - 6) * product.PriceEachFloor;
                 order.Price = order.Price + product.Price5Floor + additionalFloorPrice;
             }
 

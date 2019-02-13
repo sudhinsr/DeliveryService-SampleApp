@@ -14,6 +14,7 @@ namespace DeliveryService.Models
         public decimal Price { get; set; }
 
         public bool HasFloor => NoOfFloors > 0;
+        public bool HasDistance => Distance > 0;
         public bool HasCoupon => !string.IsNullOrEmpty(Coupon);
         public bool IsWeekend =>
             DeliveryDate.DayOfWeek == DayOfWeek.Saturday || DeliveryDate.DayOfWeek == DayOfWeek.Sunday;

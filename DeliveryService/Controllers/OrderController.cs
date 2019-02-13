@@ -21,7 +21,7 @@ namespace DeliveryService.Controllers
 
         [Route("fee-estimation")]
         [HttpPost]
-        public async Task<Order> Get(Order order)
+        public async Task<Order> GetFeeEstimation(Order order)
         {
             var product = await _productRepository.GetAsync(order.ProductId);
             var customer = await _customerRepository.GetAsync(order.CustomerId);
@@ -34,7 +34,11 @@ namespace DeliveryService.Controllers
             var priceCalculate = new BasePriceCalculate();
             if (!order.IsWeekend)
             {
-                priceCalculate.SetNext(new DistancePriceCalculate());
+                if (order.HasDistance)
+                {
+                    priceCalculate.SetNext(new DistancePriceCalculate());
+                }
+
                 if (order.HasFloor)
                 {
                     priceCalculate.SetNext(new FloorPriceCalculation());
