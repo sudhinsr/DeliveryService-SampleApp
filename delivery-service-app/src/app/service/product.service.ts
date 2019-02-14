@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../interface/product';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
+export class ProductService {
 
-  baseUrl: string = 'http://localhost:5152/';
+  baseUrl: string = environment.apiUrl + "product";
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
-    return this.http.get<Product[]>(this.baseUrl + "product");
+  getProducts() {
+    return this.http.get<Product[]>(this.baseUrl);
   }
 }
