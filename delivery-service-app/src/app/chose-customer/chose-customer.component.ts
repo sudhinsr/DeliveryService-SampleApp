@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../service/customer.service';
 import { Customer } from '../interface/customer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chose-customer',
@@ -10,9 +11,9 @@ import { Customer } from '../interface/customer';
 export class ChoseCustomerComponent implements OnInit {
 
   customers: Customer[];
-  selectedCustomerId: number;
+  selectedCustomerId = 0;
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService, private router: Router) { }
 
   ngOnInit() {
     this.customerService.getCustomers().subscribe(data =>{
@@ -20,4 +21,7 @@ export class ChoseCustomerComponent implements OnInit {
     });
   }
 
+  userSelected(event){
+    this.router.navigate(['/list-product', this.selectedCustomerId]);
+  }
 }

@@ -6,7 +6,7 @@ import { ChoseCustomerComponent } from './chose-customer/chose-customer.componen
 
 const routes: Routes = [
   { path: '', redirectTo: 'chose-customer', pathMatch: 'full' },
-  { path: 'list-product', component: ListProductComponent },
+  { path: 'list-product/:id', component: ListProductComponent },
   { path: 'place-order', component: PlaceOrdrerComponent },
   { path: 'chose-customer', component: ChoseCustomerComponent }
 ];

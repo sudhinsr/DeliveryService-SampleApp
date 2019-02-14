@@ -11,7 +11,8 @@ import { CustomerService } from './service/customer.service';
 import { ChoseCustomerComponent } from './chose-customer/chose-customer.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSelectModule, MatOptionModule, MatFormFieldModule } from '@angular/material';
+import { MatSelectModule, MatOptionModule, MatFormFieldModule, MatButtonModule,
+  MatTableModule, MatHeaderCell, MatDialogModule } from '@angular/material';
 
 
 @NgModule({
@@ -29,7 +30,10 @@ import { MatSelectModule, MatOptionModule, MatFormFieldModule } from '@angular/m
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatButtonModule,
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [ProductService, OrderService, CustomerService],
   bootstrap: [AppComponent]
