@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-select [(ngModel)]="selectedCustomerId">
+    <mat-option [value]="customer.CustomerId" *ngFor="let customer of customers">{{customer.CustomerName}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+{{selectedCustomerId}}

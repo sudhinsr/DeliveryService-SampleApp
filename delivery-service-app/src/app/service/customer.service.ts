@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CustomerService {
 
-  baseUrl: string = environment.apiUrl + "customer";
+  baseUrl: string = environment.apiUrl + 'customer';
 
   constructor(private http: HttpClient) { }
 
