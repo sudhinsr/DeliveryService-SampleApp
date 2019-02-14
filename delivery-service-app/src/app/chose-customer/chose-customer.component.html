@@ -1,6 +1,7 @@
 <mat-form-field>
-  <mat-select [(ngModel)]="selectedCustomerId">
+  <mat-select [(ngModel)]="selectedCustomerId" placeholder="Select">
     <mat-option [value]="customer.CustomerId" *ngFor="let customer of customers">{{customer.CustomerName}}</mat-option>
   </mat-select>
 </mat-form-field>
+
 <button [disabled]="selectedCustomerId == 0" (click)="userSelected($event)" mat-button>Go</button>

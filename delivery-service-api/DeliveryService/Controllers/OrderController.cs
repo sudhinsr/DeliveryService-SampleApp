@@ -24,7 +24,7 @@ namespace DeliveryService.Controllers
         }
 
         [HttpPost]
-        [Route("fee-estimation")]
+        [Route("price-estimation")]
         public async Task<Order> GetFeeEstimation(Order order)
         {
             var product = await _productRepository.GetAsync(order.ProductId);

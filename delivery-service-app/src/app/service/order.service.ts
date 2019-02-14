@@ -8,11 +8,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OrderService {
 
-  baseUrl: string = environment.apiUrl + "order";
+  baseUrl: string = environment.apiUrl + 'order/';
 
   constructor(private http: HttpClient) { }
 
   getOrders() {
     return this.http.get<Order[]>(this.baseUrl);
+  }
+
+  placeOrder(order: Order) {
+    return this.http.post<Order>(this.baseUrl, order);
+  }
+
+  getPriceEstimation(order: Order) {
+    return this.http.post<Order>(this.baseUrl + 'price-estimation', order);
   }
 }

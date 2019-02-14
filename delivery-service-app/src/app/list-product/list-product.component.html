@@ -1,42 +1,27 @@
-
-  <div class="col-md-6">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th class="hidden">Id</th>
-        <th>Name</th>
-        <th>Base Price</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let product of products">
-        <td class="hidden">{{product.ProductId}}</td>
-        <td>{{product.Name}}</td>
-        <td>{{product.BasePrice}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  
-
 <table mat-table [dataSource]="products" class="mat-elevation-z8">
 
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let product"> {{product.ProductId}} </td>
-    </ng-container>
+  <ng-container matColumnDef="ProductId">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let product"> {{product.ProductId}} </td>
+  </ng-container>
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let product"> {{product.ProductName}} </td>
-    </ng-container>
+  <ng-container matColumnDef="ProductName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let product"> {{product.ProductName}} </td>
+  </ng-container>
 
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Base Price </th>
-      <td mat-cell *matCellDef="let product"> {{product.BasePrice}} </td>
-    </ng-container>
-  
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  <ng-container matColumnDef="BasePrice">
+    <th mat-header-cell *matHeaderCellDef> Base Price </th>
+    <td mat-cell *matCellDef="let product"> {{product.BasePrice}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let product">
+      <button (click)="productSelected($event, product.ProductId)" mat-button>Order</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

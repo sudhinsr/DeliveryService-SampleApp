@@ -9,11 +9,9 @@ import { PlaceOrdrerComponent } from './place-ordrer/place-ordrer.component';
 import { OrderService } from './service/order.service';
 import { CustomerService } from './service/customer.service';
 import { ChoseCustomerComponent } from './chose-customer/chose-customer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSelectModule, MatOptionModule, MatFormFieldModule, MatButtonModule,
-  MatTableModule, MatHeaderCell, MatDialogModule } from '@angular/material';
-
+import { AppMaterialModule } from './material-module';
 
 @NgModule({
   declarations: [
@@ -24,16 +22,12 @@ import { MatSelectModule, MatOptionModule, MatFormFieldModule, MatButtonModule,
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatButtonModule,
-    MatTableModule,
-    MatDialogModule
+    AppMaterialModule
   ],
   providers: [ProductService, OrderService, CustomerService],
   bootstrap: [AppComponent]

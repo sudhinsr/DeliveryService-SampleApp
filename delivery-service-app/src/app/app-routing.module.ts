@@ -6,9 +6,9 @@ import { ChoseCustomerComponent } from './chose-customer/chose-customer.componen
 
 const routes: Routes = [
   { path: '', redirectTo: 'chose-customer', pathMatch: 'full' },
-  { path: 'list-product/:id', component: ListProductComponent },
-  { path: 'place-order', component: PlaceOrdrerComponent },
-  { path: 'chose-customer', component: ChoseCustomerComponent }
+  { path: 'chose-customer', component: ChoseCustomerComponent },
+  { path: 'list-product/:customerId', component: ListProductComponent },
+  { path: 'place-order/:customerId/:productId', component: PlaceOrdrerComponent }
 ];
 
 @NgModule({
