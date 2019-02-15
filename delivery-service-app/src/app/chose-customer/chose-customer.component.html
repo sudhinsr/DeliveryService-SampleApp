@@ -1,5 +1,7 @@
+<strong>Choose customer</strong>
+<br />
 <mat-form-field>
-  <mat-select [(ngModel)]="selectedCustomerId" placeholder="Select Customer">
+  <mat-select [(ngModel)]="selectedCustomerId" placeholder="Select customer">
     <mat-option [value]="customer.CustomerId" *ngFor="let customer of customers">{{customer.CustomerName}}</mat-option>
   </mat-select>
 </mat-form-field>
