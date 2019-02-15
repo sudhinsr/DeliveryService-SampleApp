@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -10,7 +11,7 @@ namespace DeliveryService
     {
         public static void Register(HttpConfiguration config)
         {
-            var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+            var cors = new EnableCorsAttribute(ConfigurationManager.AppSettings["CorsEnabledSites"], "*", "*");
 
             config.EnableCors(cors);
 
