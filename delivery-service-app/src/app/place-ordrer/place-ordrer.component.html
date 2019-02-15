@@ -12,11 +12,15 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input [min]="minDate" formControlName="DeliveryDate" matInput [matDatepicker]="picker" placeholder="Choose a delivery date"s>
+    <input [min]="minDate" formControlName="DeliveryDate" matInput [matDatepicker]="picker" placeholder="Choose a delivery date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <button type="submit" [disabled]="!orderForm.valid" mat-button>Place Order</button>
 </form>
 
-Estimeted price : {{estimatedPrice}}
+Estimeted price :  <strong>{{estimatedPrice}}</strong>
+
+<div [hidden] = "!isWeekend">
+  *On the weekend the cost of the delivery is a flat rate
+</div>

@@ -22,6 +22,7 @@ export class PlaceOrdrerComponent implements OnInit {
   orderForm: FormGroup;
   minDate: Date;
   estimatedPrice = 0;
+  isWeekend = false;
 
   constructor(private orderService: OrderService,
               private customerService: CustomerService,
@@ -53,6 +54,13 @@ export class PlaceOrdrerComponent implements OnInit {
         this.orderService.getPriceEstimation(estimation).subscribe(data => {
           this.estimatedPrice = data.Price;
         });
+      }
+    });
+
+    this.orderForm.valueChanges.subscribe(() => {
+      if (this.orderForm.controls.DeliveryDate.valid) {
+        const day = this.orderForm.controls.DeliveryDate.value.getDay();
+        this.isWeekend = (day === 6 || day === 0);
       }
     });
   }
