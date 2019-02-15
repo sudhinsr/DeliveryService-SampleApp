@@ -42,9 +42,9 @@ export class PlaceOrdrerComponent implements OnInit {
   createOrderForm() {
     this.orderForm = new FormGroup({
       DeliveryDate: new FormControl('', [Validators.required]),
-      Coupon: new FormControl('', [Validators.required]),
-      Distance: new FormControl('', [Validators.required, Validators.pattern('[0-9]')]),
-      NoOfFloors: new FormControl('', [Validators.required, Validators.pattern('[0-9]')]),
+      Coupon: new FormControl(''),
+      Distance: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
+      NoOfFloors: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
     });
 
     this.orderForm.valueChanges.subscribe(() => {

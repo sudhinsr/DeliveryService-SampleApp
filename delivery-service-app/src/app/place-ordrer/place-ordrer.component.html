@@ -1,10 +1,10 @@
 <form [formGroup]="orderForm" class="place-order-container" (ngSubmit) = "placeOrder()">
   <mat-form-field>
-    <input type="number" formControlName="Distance" matInput placeholder="Distance from office" >
+    <input type="number" formControlName="Distance" matInput placeholder="Distance from office" max="100" >
   </mat-form-field>
 
   <mat-form-field>
-    <input type="number" formControlName="NoOfFloors" matInput placeholder="Floor no" >
+    <input type="number" formControlName="NoOfFloors" matInput placeholder="Floor no" max="100">
   </mat-form-field>
 
   <mat-form-field>
