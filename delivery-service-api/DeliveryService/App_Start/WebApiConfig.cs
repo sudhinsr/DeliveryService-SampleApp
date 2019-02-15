@@ -11,7 +11,12 @@ namespace DeliveryService
         public static void Register(HttpConfiguration config)
         {
             var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+
             config.EnableCors(cors);
+
+            config.Formatters.JsonFormatter
+                .SerializerSettings
+                .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
             // Web API configuration and services
 
