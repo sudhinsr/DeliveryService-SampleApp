@@ -69,7 +69,7 @@ export class PlaceOrdrerComponent implements OnInit {
     const order: Order = {
       CustomerId: this.currentCustomerId,
       Coupon: this.orderForm.controls.Coupon.value,
-      DeliveryDate: this.orderForm.controls.DeliveryDate.value,
+      DeliveryDate: this.orderForm.controls.DeliveryDate.value.toDateString(),
       Distance: this.orderForm.controls.Distance.value,
       NoOfFloors: this.orderForm.controls.NoOfFloors.value,
       OrderId: 0,
